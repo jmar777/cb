@@ -2,6 +2,19 @@
 
 A minimal node.js utility for handling common (but often overlooked) callback scenarios.
 
+## Seriously, another control flow library?
+
+Not exactly. There are literally hundreds of libraries available for easing some of the pains associated with the continuation
+passing style, and most of them do a pretty good job at this. These libraries typically focus on clean, terse APIs around
+defining complex sequences of async operations, and thus tend to compete with each other through their varying approaches.
+Rather than compete with these libraries, `cb()` focuses on a much narrower range of problems, and is intended to be complementary
+to your control flow library (or lack thereof) of choice.
+
+Instead of focusing on making complex, intertwined async interactions easier to read and write, `cb()`'s goal is simply to make
+your code safer and more resilient to often overlooked error scenarios (such as callbacks that are accidentally invoked
+synchronously, multiple times, or even never at all).  And because the desired callback execution semantics vary from use case to use
+case, `cb()` allows you to pick and choose the rules that you want for a given callback, and then gets out of the way.
+
 ##Features
 
   * `.timeout()`: Simple callback timeouts
