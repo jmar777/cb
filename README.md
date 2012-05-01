@@ -18,7 +18,7 @@ A minimal node.js utility for handling common (but often overlooked) callback sc
 ### Basic Usage
 
 The most basic usage of `cb` consists of passing in your own function reference. In this example, `cb` will do nothing other
-than insure the once-and-only-once, asynchronous invocation of the callback.
+than insure the asynchronous invocation of the callback.
 
     doAsync(cb(function(err, res) {
         console.log(res);
