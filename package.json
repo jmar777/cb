@@ -1,0 +1,17 @@
+{
+	"author": "Jeremy Martin <jmar777@gmail.com> (http://twitter.com/jmar777)",
+	"name": "cb",
+	"description": "Super simple callback mechanism with support for timeouts and explicit error handling",
+	"version": "0.1.0",
+	"repository": {
+		"type" : "git",
+		"url" : "git://github.com/jmar777/cb.git"
+	},
+	"main": "lib/cb.js",
+	"devDependencies": {
+		"mocha": ">=0.3.6"
+	},
+	"engines": {
+		"node": ">=0.6.0"
+	}
+}
