@@ -2,12 +2,12 @@
 
 A minimal node.js utility for handling common (but often overlooked) callback scenarios.
 
-##Features:
+##Features
 
-  * Simple timeout handling of async operations
-  * Optional explicit error handling (based on node.js' error-first callback convention)
-  * Guarantees asynchronous callback execution (protects against code that breaks this assumption)
-  * Optionally enforce once-and-only-once callback semantics
+  * `.timeout()`: Simple callback timeouts
+  * `.error()`: Explicit error handling
+  * `.once()`: Once-and-only-once callback semantics
+  *  Guaranteed asynchronous callback execution (protects against code that breaks this assumption)
 
 ## Installation
 
