@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jmar777/cb.png)](http://travis-ci.org/jmar777/cb)
 # cb()
 
 A minimal node.js utility for handling common (but often overlooked) callback scenarios.
