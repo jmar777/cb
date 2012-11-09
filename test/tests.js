@@ -82,7 +82,7 @@ describe('cb(callback).timeout(ms)', function() {
 		invokeAsync(cb(function(err, res) {        
 			assert(err instanceof CustomError);
 			done();
-		}).timeoutError(CustomError).timeout(50));
+		}).timeout(50, CustomError));
 	});
 
 });
