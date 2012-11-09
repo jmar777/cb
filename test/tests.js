@@ -136,7 +136,7 @@ describe('cb(callback).context()', function() {
                 assert.strictEqual(context, foo);
 	});
         
-        it('should return the callback passed, even after timing out', function() {
+        it('should return the callback passed, even after timing out', function(done) {
                 var bar    = function bar(err, res) {                        
 			    assert(err);
                             assert.strictEqual()
