@@ -123,3 +123,13 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+describe('cb(callback).uid', function() {
+
+	it('should have a unique id', function() {
+            var _cb = cb(function() {});
+
+            assert.strictEqual(typeof _cb.uid, 'string');
+	});
+
+});
