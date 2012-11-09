@@ -133,13 +133,13 @@ describe('cb(callback).bind()', function() {
 		}).bind([1, 2, 3]));
 	});
         
-        it('should allow for currying arguments', function() {
+        it('should allow for currying arguments', function(done) {
 		invokeAsync(cb(function(a, b, c, err, res) {
 			assert.strictEqual(a, 1);
                         assert.strictEqual(b, 2);
                         assert.strictEqual(c, 3);
 			done();
-		}).bind(null, [1, 2, 3]));            
+		}).bind(null, 1, 2, 3));            
         })
 
 });
