@@ -61,13 +61,6 @@ describe('cb(callback).timeout(ms)', function() {
 			done();
 		}).timeout(50));
 	});
-        
-        it('should allow for the timeout to be cleared', function(done) {
-		invokeAsync(cb(function(err, res) {
-			assert.strictEqual(err, null);
-			done();
-		}).timeout(50).timeout());
-	});
 
 	it('error resulting from a timeout should be instanceof cb.TimeoutError', function(done) {
 		invokeAsync(cb(function(err, res) {
