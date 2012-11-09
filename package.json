@@ -8,6 +8,9 @@
 		"url" : "git://github.com/jmar777/cb.git"
 	},
 	"main": "lib/cb.js",
+        "dependencies": {
+            "node-uuid": "1.4.x"            
+        },
 	"devDependencies": {
 		"mocha": ">=0.3.6"
 	},
