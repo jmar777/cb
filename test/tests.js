@@ -123,3 +123,32 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+describe('cb(callback).async()', function() {
+
+	it('should be sync by default', function() {
+		var count = 0,
+                    _cb = cb(function(err, res) {
+			count++;
+			assert.notEqual(count, 2);
+		    });
+                    
+                _cb();                    
+                
+                assert.strictEqual(count, 1);
+	});
+        
+        it('should be async when triggered', function(done) {
+		var count = 0,
+                    _cb = cb(function(err, res) {
+			count++;
+			assert.notEqual(count, 2);
+                        done();
+		    }).async();
+                    
+                _cb();                                    
+                
+                assert.strictEqual(count, 0);
+	});
+
+});
