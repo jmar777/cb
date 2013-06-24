@@ -93,7 +93,7 @@ The `cb` API is fully chainable, and any arrangement of the features is valid.  
 
 ## Running the Tests
 
-    $ make test
+    $ npm test
 
 ## License 
 
