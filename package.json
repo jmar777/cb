@@ -1,17 +1,21 @@
 {
 	"author": "Jeremy Martin <jmar777@gmail.com> (http://twitter.com/jmar777)",
 	"name": "cb",
-	"description": "Super simple callback mechanism with support for timeouts and explicit error handling",
-	"version": "0.1.0",
+	"description": "Simple utility methods for adding timeouts, throttling, and other common behaviors callbacks.",
+	"version": "0.1.1-pre",
 	"repository": {
 		"type" : "git",
 		"url" : "git://github.com/jmar777/cb.git"
 	},
 	"main": "lib/cb.js",
+	"scripts": {
+		"test": "./node_modules/mocha/bin/mocha --reporter list"
+	},
 	"devDependencies": {
-		"mocha": ">=0.3.6"
+		"mocha": "~1.11.0"
 	},
 	"engines": {
 		"node": ">=0.6.0"
-	}
+	},
+	"license": "MIT"
 }
