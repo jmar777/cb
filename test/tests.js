@@ -123,3 +123,23 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+describe('cb(callback).bind()', function() {
+
+	it('should allow binding a context', function(done) {		
+		invokeAsync(cb(function(err, res) {
+			assert.strictEqual([1,2,3].toString(), this.toString())                        
+			done();
+		}).bind([1, 2, 3]));
+	});
+        
+        it('should allow for currying arguments', function(done) {
+		invokeAsync(cb(function(a, b, c, err, res) {
+			assert.strictEqual(a, 1);
+                        assert.strictEqual(b, 2);
+                        assert.strictEqual(c, 3);
+			done();
+		}).bind(null, 1, 2, 3));            
+        })
+
+});
