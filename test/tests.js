@@ -123,3 +123,37 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+
+
+describe('cb(callback).context()', function() {
+
+	it('should return the callback passed', function() {
+		var foo     = function foo() {},
+                    context = cb(foo).context();
+                    
+                assert.strictEqual(context.name, 'foo');
+                assert.strictEqual(context, foo);
+	});
+        
+        it('should return the callback passed, even after timing out', function(done) {
+                var bar    = function bar(err, res) {                        
+			    assert(err);
+                            assert.strictEqual()
+			    finish();
+		    },
+                    _cb = cb(bar).timeout(50),
+                    finish = function() {
+                        var context = _cb.context();
+                        
+                        assert.strictEqual(context.name, 'bar');
+                        assert.strictEqual(context, bar);
+                        
+                        done();
+                    }                       
+                        
+                    
+		invokeAsync(_cb);
+	});
+
+});
