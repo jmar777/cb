@@ -123,3 +123,33 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+describe('cb(callback).emitter()', function() {
+	it('should remove callback from eventemitter(s)', function() {
+		var emitter = new (require('events').EventEmitter)(),
+                    _cb     = cb(function() {}).emitter(emitter);
+                
+                emitter.on('testing', _cb);
+                
+                assert.strictEqual(1, emitter.listeners('testing').length);
+                
+                _cb.free();
+                
+                assert.strictEqual(0, emitter.listeners('testing').length);
+	});
+        
+        it('should remove callback from eventemitter(s) on timeout', function(done) {
+                var emitter = new (require('events').EventEmitter)(),
+                    _cb     = cb(function(err, res) {
+			assert(err);
+                        assert.strictEqual(0, emitter.listeners('testing').length);
+			done();
+		}).emitter(emitter);
+                
+                emitter.on('testing', _cb);
+                
+                assert.strictEqual(1, emitter.listeners('testing').length);
+                
+		invokeAsync(_cb.timeout(50));
+	});
+});
