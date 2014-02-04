@@ -62,11 +62,27 @@ describe('cb(callback).timeout(ms)', function() {
 		}).timeout(50));
 	});
 
-	it('error resulting from a timeout should be instanceof cb.TimeoutError', function(done) {
+	it('error resulting from a timeout should be instanceof cb.TimeoutError by default', function(done) {
 		invokeAsync(cb(function(err, res) {
 			assert(err instanceof cb.TimeoutError);
 			done();
 		}).timeout(50));
+	});
+        
+        it('error resulting from a timeout should be customizable', function(done) {
+                var CustomError = function CustomError(ms) {
+                    this.message = 'Specified timeout of ' + ms + 'ms was reached';
+                    Error.captureStackTrace(this, this.constructor);
+                };
+                
+                CustomError.prototype = new Error;
+                CustomError.prototype.constructor = CustomError;
+                CustomError.prototype.name = 'CustomError';
+                
+		invokeAsync(cb(function(err, res) {        
+			assert(err instanceof CustomError);
+			done();
+		}).timeout(50, CustomError));
 	});
 
 });
