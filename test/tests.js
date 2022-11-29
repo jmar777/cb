@@ -123,3 +123,61 @@ describe('cb(callback).once()', function() {
 	});
 
 });
+
+describe('cb(callback).interval()', function() {
+    it('should allow for a timeout to be extended and called', function(done) {
+		var count = 0,                   
+                    start,
+                    iid,
+                    _cb   = cb(function(err, res) {
+                        if (! count) {
+                            start = new Date().getTime();
+                        }
+                        
+                        if (count > 5) {
+                            clearInterval(iid); 
+                        }
+                        
+                        if (err) {
+                            assert((new Date().getTime() - start) > 1000);
+                            done();
+                        }
+                        
+                        ++count;
+		    }).interval(500);
+                    
+                this.timeout(5000);   
+                
+                this.slow(5000);
+                    
+                iid = setInterval(_cb, 200);                  		
+    });
+    
+    it('should allow for interval to be cancelled', function(done) {
+		var count = 0,                   
+                    iid,
+                    _cb   = cb(function(err, res) {                       
+                        if (count == 6) {
+                            clearInterval(iid);
+                            _cb.interval(false);
+                        }
+                        
+                        if (err) {                            
+                            throw new Error('Should not timeout if interval is cancelled');
+                        }
+                        
+                        ++count;
+		    }).interval(500);
+                    
+                this.timeout(10000);   
+                
+                this.slow(10000);
+                    
+                iid = setInterval(_cb, 200); 
+                
+                setTimeout(function() {   
+                    assert(count == 7);
+                    done();                    
+                }, 4000);
+    });
+})
