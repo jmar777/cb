@@ -2,7 +2,7 @@
 	"author": "Jeremy Martin <jmar777@gmail.com> (http://twitter.com/jmar777)",
 	"name": "cb",
 	"description": "Simple utility methods for adding timeouts, throttling, and other common behaviors callbacks.",
-	"version": "0.1.1-pre",
+	"version": "0.1.1",
 	"repository": {
 		"type" : "git",
 		"url" : "git://github.com/jmar777/cb.git"
