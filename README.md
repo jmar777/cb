@@ -31,7 +31,7 @@ case, `cb()` allows you to pick and choose the rules that you want for a given c
 ### Basic Usage
 
 The most basic usage of `cb` consists of passing in your own function reference. In this example, `cb` will do nothing other
-than insure the asynchronous invocation of the callback.
+than ensure the asynchronous invocation of the callback.
 
     doAsync(cb(function(err, res) {
         console.log(res);
